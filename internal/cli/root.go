@@ -38,6 +38,7 @@ func newRootCmd() *cobra.Command {
 	root.AddCommand(newSystemCmd())
 	root.AddCommand(newHotspotCmd())
 	root.AddCommand(newNetworkCmd())
+	root.AddCommand(newShareCmd())
 	return root
 }
 
