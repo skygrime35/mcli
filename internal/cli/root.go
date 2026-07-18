@@ -13,6 +13,7 @@ import (
 	"github.com/skygrime35/mcli/internal/tui/menu"
 	"github.com/skygrime35/mcli/internal/tui/networkui"
 	"github.com/skygrime35/mcli/internal/tui/serverui"
+	"github.com/skygrime35/mcli/internal/tui/shareui"
 	"github.com/skygrime35/mcli/internal/tui/systemui"
 	"github.com/spf13/cobra"
 )
@@ -90,7 +91,13 @@ func mainMenuItems(cfg *config.Config) []menu.Item {
 				return tui.PushScreen(networkui.NewMenuScreen())
 			},
 		},
-		{Title: "File Sharing", Description: "Coming soon", Disabled: true},
+		{
+			Title:       "File Sharing",
+			Description: "Share a local directory over HTTP",
+			OnSelect: func() tea.Cmd {
+				return tui.PushScreen(shareui.NewMenuScreen())
+			},
+		},
 	}
 }
 
