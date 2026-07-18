@@ -95,4 +95,16 @@ func (s *runningScreen) View() string {
 	return out
 }
 
+// Close implements tui.Closer, so RootModel can gracefully stop the
+// running file-share server on ctrl+c, not just on q/esc.
+func (s *runningScreen) Close() {
+	if s.srv != nil && !s.stopped {
+		s.stopped = true
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+		_ = s.srv.Stop(ctx)
+	}
+}
+
 var _ tui.Screen = (*runningScreen)(nil)
+var _ tui.Closer = (*runningScreen)(nil)

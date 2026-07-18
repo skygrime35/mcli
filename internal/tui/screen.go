@@ -11,6 +11,14 @@ type Screen interface {
 	Title() string
 }
 
+// Closer is implemented by screens that hold a live resource (e.g. a
+// running server) needing explicit cleanup before the program exits.
+// RootModel checks for this via a type assertion - most screens don't
+// need it and are unaffected.
+type Closer interface {
+	Close()
+}
+
 // PushScreenMsg and PopScreenMsg are the only two messages RootModel
 // intercepts itself; every other message is delegated to the top screen.
 // Child screens never receive these messages directly — they only ever
@@ -68,6 +76,11 @@ func (r RootModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		return r, tea.Batch(cmds...)
 	case tea.KeyMsg:
 		if msg.String() == "ctrl+c" {
+			for _, scr := range r.stack {
+				if c, ok := scr.(Closer); ok {
+					c.Close()
+				}
+			}
 			return r, tea.Quit
 		}
 	case PushScreenMsg:
