@@ -1,0 +1,20 @@
+# Copy this file to ~/.config/mcli/config.yaml and fill in your own values.
+# mcli also creates this file automatically (with empty defaults) on first run
+# if it doesn't exist yet.
+
+servers:
+  - name: home              # short name, used everywhere as `mcli server status home`
+    host: my-server.example.com   # IP or hostname (e.g. a DynDNS/Freebox domain)
+    mac: "AA:BB:CC:DD:EE:FF"      # MAC address of the server's network interface, for Wake-on-LAN
+    ssh_user: myuser
+    ssh_port: 22
+    wol_port: 9              # standard WOL port; some routers require a custom port instead
+
+hotspot:
+  ssid: MyHotspot
+  password: change-me
+
+share:
+  dir: share                # folder to expose over HTTP
+  port: 8000
+  password: ""              # leave empty to disable basic auth
