@@ -11,6 +11,7 @@ import (
 	"github.com/skygrime35/mcli/internal/tui/dockerui"
 	"github.com/skygrime35/mcli/internal/tui/hotspotui"
 	"github.com/skygrime35/mcli/internal/tui/menu"
+	"github.com/skygrime35/mcli/internal/tui/networkui"
 	"github.com/skygrime35/mcli/internal/tui/serverui"
 	"github.com/skygrime35/mcli/internal/tui/systemui"
 	"github.com/spf13/cobra"
@@ -81,7 +82,13 @@ func mainMenuItems(cfg *config.Config) []menu.Item {
 				return tui.PushScreen(hotspotui.NewMenuScreen())
 			},
 		},
-		{Title: "Network Status", Description: "Coming soon", Disabled: true},
+		{
+			Title:       "Network Status",
+			Description: "IP addresses, ports, connectivity, speed test",
+			OnSelect: func() tea.Cmd {
+				return tui.PushScreen(networkui.NewMenuScreen())
+			},
+		},
 		{Title: "File Sharing", Description: "Coming soon", Disabled: true},
 	}
 }
