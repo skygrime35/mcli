@@ -36,6 +36,7 @@ func newRootCmd() *cobra.Command {
 	root.AddCommand(newDockerCmd())
 	root.AddCommand(newSystemCmd())
 	root.AddCommand(newHotspotCmd())
+	root.AddCommand(newNetworkCmd())
 	return root
 }
 
