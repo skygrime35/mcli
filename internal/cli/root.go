@@ -19,8 +19,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
-func Execute() {
-	if err := newRootCmd().Execute(); err != nil {
+func Execute(version string) {
+	root := newRootCmd()
+	root.Version = version
+	if err := root.Execute(); err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		os.Exit(1)
 	}
