@@ -9,6 +9,7 @@ import (
 	"github.com/skygrime35/mcli/internal/config"
 	"github.com/skygrime35/mcli/internal/tui"
 	"github.com/skygrime35/mcli/internal/tui/dockerui"
+	"github.com/skygrime35/mcli/internal/tui/healthui"
 	"github.com/skygrime35/mcli/internal/tui/hotspotui"
 	"github.com/skygrime35/mcli/internal/tui/menu"
 	"github.com/skygrime35/mcli/internal/tui/networkui"
@@ -62,7 +63,13 @@ func mainMenuItems(cfg *config.Config) []menu.Item {
 				return tui.PushScreen(serverui.NewListScreen(cfg))
 			},
 		},
-		{Title: "PC Health", Description: "Coming soon", Disabled: true},
+		{
+			Title:       "PC Health",
+			Description: "CPU, memory, disks, network, services, battery, security",
+			OnSelect: func() tea.Cmd {
+				return tui.PushScreen(healthui.NewMenuScreen())
+			},
+		},
 		{
 			Title:       "Docker",
 			Description: "Full purge, clear all containers, select purge",

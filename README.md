@@ -40,4 +40,4 @@ Run `mcli --help` for the full command list.
 
 ## Status
 
-Work in progress — this is a from-scratch Go rewrite of an earlier Python version. The interactive TUI (bubbletea), Server Manager, PC Health, Docker Manager, System Update, Hotspot Manager (`mcli hotspot on/off/stats`, activate/deactivate/stats from the TUI menu), Network Status (`mcli network status/speedtest`, viewable from the TUI menu), and File Sharing (`mcli share start`, viewable from the TUI menu) are implemented.
+Work in progress — this is a from-scratch Go rewrite of an earlier Python version. The interactive TUI (bubbletea), Server Manager, PC Health (CLI + TUI, summary and watch modes), Docker Manager, System Update, Hotspot Manager (`mcli hotspot on/off/stats`, activate/deactivate/stats from the TUI menu), Network Status (`mcli network status/speedtest`, viewable from the TUI menu), and File Sharing (`mcli share start`, viewable from the TUI menu) are fully implemented. Every main-menu item is now a working feature with no remaining placeholders.
