@@ -86,12 +86,4 @@ main() {
 	esac
 }
 
-# Guarded rather than an unconditional call: this lets the functions above be
-# safely sourced (e.g. `. ./scripts/install.sh`) for testing the detection
-# logic (detect_os, detect_arch, is_termux, install_dir) without triggering a
-# real download. Set MCLI_INSTALL_SKIP_MAIN=1 before sourcing to opt out of
-# running main. Normal usage (./install.sh, `sh install.sh`, or
-# `curl -fsSL ... | sh`) is unaffected since the variable is unset by default.
-if [ -z "${MCLI_INSTALL_SKIP_MAIN:-}" ]; then
-	main "$@"
-fi
+main "$@"
