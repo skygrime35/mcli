@@ -44,4 +44,4 @@ Run `mcli --help` for the full command list.
 
 Feature-complete baseline (v0.1.0): this is a from-scratch Go rewrite of an earlier Python version. All planned features are implemented — interactive TUI (bubbletea), Server Manager, PC Health (CLI + TUI, summary and watch modes), Docker Manager, System Update, Hotspot Manager, Network Status, and File Sharing. Every main-menu item is a working feature with no remaining placeholders.
 
-As a personal tool, it prioritizes your own PC/server workflows over broad platform coverage or edge-case stability guarantees; it's tested on Linux (desktop) and Android/Termux.
+As a personal tool, it prioritizes your own PC/server workflows over broad platform coverage or edge-case stability guarantees. It runs on Linux (desktop) and Android/Termux.
