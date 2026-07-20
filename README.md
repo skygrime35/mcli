@@ -18,6 +18,8 @@ go install github.com/skygrime35/mcli@latest
 curl -fsSL https://raw.githubusercontent.com/skygrime35/mcli/main/scripts/install.sh | sh
 ```
 
+Release binaries are published for `linux/amd64` and `linux/arm64` (covering desktop Linux and Termux/Android).
+
 ## Configuration
 
 On first run, `mcli` creates `~/.config/mcli/config.yaml`. See [`config.example.yaml`](./config.example.yaml) for the full format, or add a server directly:
@@ -40,4 +42,6 @@ Run `mcli --help` for the full command list.
 
 ## Status
 
-Work in progress — this is a from-scratch Go rewrite of an earlier Python version. The interactive TUI (bubbletea), Server Manager, PC Health (CLI + TUI, summary and watch modes), Docker Manager, System Update, Hotspot Manager (`mcli hotspot on/off/stats`, activate/deactivate/stats from the TUI menu), Network Status (`mcli network status/speedtest`, viewable from the TUI menu), and File Sharing (`mcli share start`, viewable from the TUI menu) are fully implemented. Every main-menu item is now a working feature with no remaining placeholders.
+Feature-complete baseline (v0.1.0): this is a from-scratch Go rewrite of an earlier Python version. All planned features are implemented — interactive TUI (bubbletea), Server Manager, PC Health (CLI + TUI, summary and watch modes), Docker Manager, System Update, Hotspot Manager, Network Status, and File Sharing. Every main-menu item is a working feature with no remaining placeholders.
+
+As a personal tool, it prioritizes your own PC/server workflows over broad platform coverage or edge-case stability guarantees; it's tested on Linux (desktop) and Android/Termux.
